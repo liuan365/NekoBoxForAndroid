@@ -1,1 +1,4 @@
-IyEvYmluL2Jhc2gKCmJhc2ggYnVpbGRTY3JpcHQvbGliL2NvcmUvaW5pdC5zaApiYXNoIGJ1aWxkU2NyaXB0L2xpYi9jb3JlL2J1aWxkLnNoCg==
+#!/bin/bash
+
+bash buildScript/lib/core/init.sh
+bash buildScript/lib/core/build.sh
