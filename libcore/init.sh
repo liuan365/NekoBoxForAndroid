@@ -12,6 +12,7 @@ if [ ! -f "$GOPATH/bin/gomobile-matsuri" ]; then
     git clone https://github.com/MatsuriDayo/gomobile.git
     pushd gomobile
 	git checkout origin/master2
+    sed -i '/gotypesalias/d' go.mod || true
     pushd cmd
     pushd gomobile
     go install -v
