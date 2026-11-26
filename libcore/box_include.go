@@ -32,6 +32,7 @@ import (
 	snellprotocol "github.com/sagernet/sing-box/protocol/snell"
 	"github.com/sagernet/sing-box/protocol/socks"
 	"github.com/sagernet/sing-box/protocol/ssh"
+	"github.com/sagernet/sing-box/protocol/tailscale"
 	"github.com/sagernet/sing-box/protocol/tor"
 	"github.com/sagernet/sing-box/protocol/trojan"
 	"github.com/sagernet/sing-box/protocol/tuic"
@@ -99,6 +100,7 @@ func nekoboxAndroidEndpointRegistry() *endpoint.Registry {
 	registry := endpoint.NewRegistry()
 
 	wireguard.RegisterEndpoint(registry)
+	tailscale.RegisterEndpoint(registry)
 
 	return registry
 }
@@ -116,6 +118,7 @@ func nekoboxAndroidDNSTransportRegistry(localTransport LocalDNSTransport) *dns.T
 
 	quic.RegisterTransport(registry)
 	quic.RegisterHTTP3Transport(registry)
+	tailscale.RegistryTransport(registry)
 
 	if localTransport == nil {
 		local.RegisterTransport(registry)
